@@ -27,6 +27,9 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="container py-12">
         <div className="text-center mb-12 space-y-4">
+          <div className="text-sm font-medium text-primary mb-2">
+            By Sunscreen for Earth
+          </div>
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
             Urban Heat Mitigation Simulator
           </h1>
