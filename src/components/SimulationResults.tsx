@@ -14,6 +14,25 @@ interface SimulationResultsProps {
 }
 
 export const SimulationResults = ({ data, params }: SimulationResultsProps) => {
+  const renderLegend = (props: any) => {
+    const { payload } = props;
+    return (
+      <div className="flex gap-6 justify-center items-center text-sm mt-2">
+        {payload.map((entry: any, index: number) => (
+          <div key={`item-${index}`} className="flex items-center gap-2">
+            <div
+              className="w-4 h-[2px]"
+              style={{ backgroundColor: entry.color }}
+            />
+            <span className="text-gray-700">
+              {entry.value === "Temperature" ? "Temperature (°C)" : "Solar Radiation (W/m²)"}
+            </span>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div className="space-y-6 p-6 bg-white rounded-lg shadow-sm border border-gray-100 animate-slide-in">
       <div className="space-y-4">
@@ -35,10 +54,27 @@ export const SimulationResults = ({ data, params }: SimulationResultsProps) => {
                 dataKey="time"
                 label={{ value: "Time (hours)", position: "bottom" }}
               />
-              <YAxis yAxisId="temp" label={{ value: "Temperature (°C)", angle: -90, position: "insideLeft" }} />
-              <YAxis yAxisId="rad" orientation="right" label={{ value: "Solar Radiation (W/m²)", angle: 90, position: "insideRight" }} />
-              <Tooltip />
-              <Legend />
+              <YAxis 
+                yAxisId="temp" 
+                label={{ value: "Temperature (°C)", angle: -90, position: "insideLeft" }}
+                tick={{ fill: '#ef233c' }}
+              />
+              <YAxis 
+                yAxisId="rad" 
+                orientation="right" 
+                label={{ value: "Solar Radiation (W/m²)", angle: 90, position: "insideRight" }}
+                tick={{ fill: '#f4a261' }}
+              />
+              <Tooltip 
+                contentStyle={{ 
+                  backgroundColor: 'white',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '8px',
+                  padding: '8px'
+                }}
+                labelStyle={{ fontWeight: 600, marginBottom: '4px' }}
+              />
+              <Legend content={renderLegend} />
               <Line
                 yAxisId="temp"
                 type="monotone"
