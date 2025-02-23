@@ -31,11 +31,29 @@ const Index = () => {
             By Sunscreen for Earth
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Urban Heat Mitigation Simulator
+            Tropospheric Aerosol Injection
           </h1>
+          <h2 className="text-2xl text-gray-600">
+            Localized Solar Radiation Management (L-SRM)
+          </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Explore the effects of calcite aerosol plumes on urban temperatures through interactive simulations
           </p>
+        </div>
+
+        <div className="mb-8">
+          <div className="relative w-full h-[300px] rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="https://images.unsplash.com/photo-1501854140801-50d01698950b" 
+              alt="World Map Placeholder" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+              <p className="text-white text-lg font-medium">
+                Region selection coming soon
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

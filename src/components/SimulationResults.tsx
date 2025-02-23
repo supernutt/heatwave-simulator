@@ -49,7 +49,7 @@ export const SimulationResults = ({ data, params }: SimulationResultsProps) => {
               data={data}
               margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
             >
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis
                 dataKey="time"
                 label={{ value: "Time (hours)", position: "bottom", style: { fontWeight: 500 } }}
