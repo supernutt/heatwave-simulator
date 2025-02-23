@@ -17,11 +17,11 @@ export const SimulationResults = ({ data, params }: SimulationResultsProps) => {
   const renderLegend = (props: any) => {
     const { payload } = props;
     return (
-      <div className="flex gap-6 justify-center items-center text-sm mt-2">
+      <div className="flex gap-8 justify-center items-center text-sm mt-4 font-medium">
         {payload.map((entry: any, index: number) => (
-          <div key={`item-${index}`} className="flex items-center gap-2">
+          <div key={`item-${index}`} className="flex items-center gap-3">
             <div
-              className="w-4 h-[2px]"
+              className="w-6 h-[2px]"
               style={{ backgroundColor: entry.color }}
             />
             <span className="text-gray-700">
@@ -34,11 +34,11 @@ export const SimulationResults = ({ data, params }: SimulationResultsProps) => {
   };
 
   return (
-    <div className="space-y-6 p-6 bg-white rounded-lg shadow-sm border border-gray-100 animate-slide-in">
-      <div className="space-y-4">
+    <div className="space-y-6 p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-lg animate-slide-in">
+      <div className="space-y-6">
         <div className="flex justify-between items-center">
-          <h3 className="text-lg font-semibold">Simulation Results</h3>
-          <div className="text-sm text-gray-500">
+          <h3 className="text-xl font-semibold text-gray-900">Simulation Results</h3>
+          <div className="px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary">
             {params.climate === "arid" ? "Arid" : "Humid"} Climate
           </div>
         </div>
@@ -52,27 +52,29 @@ export const SimulationResults = ({ data, params }: SimulationResultsProps) => {
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis
                 dataKey="time"
-                label={{ value: "Time (hours)", position: "bottom" }}
+                label={{ value: "Time (hours)", position: "bottom", style: { fontWeight: 500 } }}
+                tick={{ fill: '#4b5563' }}
               />
               <YAxis 
                 yAxisId="temp" 
-                label={{ value: "Temperature (°C)", angle: -90, position: "insideLeft" }}
+                label={{ value: "Temperature (°C)", angle: -90, position: "insideLeft", style: { fontWeight: 500 } }}
                 tick={{ fill: '#ef233c' }}
               />
               <YAxis 
                 yAxisId="rad" 
                 orientation="right" 
-                label={{ value: "Solar Radiation (W/m²)", angle: 90, position: "insideRight" }}
+                label={{ value: "Solar Radiation (W/m²)", angle: 90, position: "insideRight", style: { fontWeight: 500 } }}
                 tick={{ fill: '#f4a261' }}
               />
               <Tooltip 
                 contentStyle={{ 
                   backgroundColor: 'white',
                   border: '1px solid #e5e7eb',
-                  borderRadius: '8px',
-                  padding: '8px'
+                  borderRadius: '12px',
+                  padding: '12px',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                 }}
-                labelStyle={{ fontWeight: 600, marginBottom: '4px' }}
+                labelStyle={{ fontWeight: 600, marginBottom: '8px' }}
               />
               <Legend content={renderLegend} />
               <Line
@@ -81,7 +83,7 @@ export const SimulationResults = ({ data, params }: SimulationResultsProps) => {
                 dataKey="temperature"
                 stroke="#ef233c"
                 name="Temperature"
-                strokeWidth={2}
+                strokeWidth={2.5}
                 dot={false}
               />
               <Line
@@ -90,7 +92,7 @@ export const SimulationResults = ({ data, params }: SimulationResultsProps) => {
                 dataKey="radiation"
                 stroke="#f4a261"
                 name="Solar Radiation"
-                strokeWidth={2}
+                strokeWidth={2.5}
                 dot={false}
               />
             </LineChart>
